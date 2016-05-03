@@ -16,12 +16,10 @@ class DataHandler(tornado.web.RequestHandler):
         self.set_header("Access-Control-Allow-Headers", "x-requested-with")
         self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
 
-    def get(self, cmd):
-        result = {
-            'data': [
-                [1, '2016-05-01 00:00:00', {'score': 777}]
-            ]
-        }
+    def get(self, provider):
+        result = [
+            [1, '2016-05-01 00:00:00', {'score': 777, 'type': provider}]
+        ]
 
         self.set_default_headers()
         self.write(json.dumps(result))

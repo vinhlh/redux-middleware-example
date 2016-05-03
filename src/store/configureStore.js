@@ -4,6 +4,7 @@ import rootReducer from '../reducers'
 import promiseMiddleware from '../middlewares/promiseMiddleware'
 import vlMiddleware from '../middlewares/vlMiddleware'
 import requestMiddleware from '../middlewares/requestMiddleware'
+import cacheMiddleware from '../middlewares/cacheMiddleware'
 
 export default function configureStore(initState) {
     const store = createStore(
@@ -13,6 +14,7 @@ export default function configureStore(initState) {
             applyMiddleware(
                 thunk,
                 vlMiddleware,
+                cacheMiddleware,
                 requestMiddleware,
                 promiseMiddleware
             ),

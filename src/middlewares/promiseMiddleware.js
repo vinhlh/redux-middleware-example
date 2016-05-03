@@ -18,7 +18,7 @@ const promiseMiddleware = ({ dispatch, getState }) => {
     return next => action => {
         const { type, payload } = action;
 
-        if (typeof payload.promise !== 'object' || typeof payload.promise.then !== 'function') {
+        if (!payload || typeof payload.promise !== 'object' || typeof payload.promise.then !== 'function') {
             return next(action)
         }
 

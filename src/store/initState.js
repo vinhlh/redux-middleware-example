@@ -12,6 +12,10 @@ export default {
         {
             link: '/another-page',
             name: 'AnotherPage'
+        },
+        {
+            link: '/new-relic',
+            name: 'NewRelicPage'
         }
     ]
 }
