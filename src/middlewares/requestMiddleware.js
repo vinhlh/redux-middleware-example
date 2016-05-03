@@ -16,9 +16,12 @@ const requestMiddleware = ({ dispatch, getState }) => {
 
         fetch(payload.request)
             .then(
-                response => next({
+                response => response.json()
+            )
+            .then(
+                result => next({
                     type: `${type}_${SUCCESS_SUFFIX}`,
-                    payload: response
+                    payload: result
                 })
             ).catch(
                 error => next({
